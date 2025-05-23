@@ -7,11 +7,11 @@ export default hopeTheme({
   hostname: "https://mister-hope.github.io",
 
   author: {
-    name: "Mr.Hope",
+    name: "陈清华",
     url: "https://mister-hope.com",
   },
 
-  logo: "https://theme-hope-assets.vuejs.press/logo.svg",
+  logo: "logo.svg",
 
   repo: "vuepress-theme-hope/vuepress-theme-hope",
 
@@ -24,12 +24,12 @@ export default hopeTheme({
   sidebar,
 
   // 页脚
-  footer: "默认页脚",
+  footer: "keep building",
   displayFooter: true,
 
   // 博客相关
   blog: {
-    description: "一个前端开发者",
+    description: "写代码的",
     intro: "/intro.html",
     medias: {
       Baidu: "https://example.com",
