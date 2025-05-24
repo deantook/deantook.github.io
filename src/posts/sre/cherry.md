@@ -1,12 +1,3 @@
----
-icon: pen-to-square
-date: 2025-05-22
-category:
-  - sre
-tag:
-  - sre
----
-
 # SRE运维工程师入门指南
 
 ## 一、SRE概述
