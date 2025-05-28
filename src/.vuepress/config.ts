@@ -7,7 +7,7 @@ export default defineUserConfig({
 
   lang: "zh-CN",
   title: "deantook",
-  description: "vuepress-theme-hope 的deantook",
+  description: "deantook",
 
   theme,
 

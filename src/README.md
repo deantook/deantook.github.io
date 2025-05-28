@@ -8,6 +8,5 @@ heroText: deantook
 bgImage: bg.jpg
 heroFullScreen: false
 tagline: keep building
-
 footer: keep building
 ---
