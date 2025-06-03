@@ -7,8 +7,6 @@ export default navbar([
         icon: "book",
         prefix: "posts/",
         children: [
-            "front",
-            "LargeModel",
             "golang/",
             "sre/",
             "flutter/"
