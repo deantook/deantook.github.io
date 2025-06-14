@@ -9,7 +9,8 @@ export default navbar([
         children: [
             "golang/",
             "sre/",
-            "flutter/"
+            "flutter/",
+            "grpc/"
         ],
     },
 ]);
