@@ -8,9 +8,8 @@ export default navbar([
         prefix: "posts/",
         children: [
             "golang/",
-            "sre/",
-            "flutter/",
-            "grpc/"
+            "运维/",
+            "flutter/"
         ],
     },
 ]);

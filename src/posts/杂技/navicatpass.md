@@ -1,4 +1,6 @@
-# Navicat数据库密码
+# Navicat ncx 密码解析
+
+解析 navicat 导出的 ncx 文件中保存的加密的密码
 
 ```java
 import javax.crypto.Cipher;
