@@ -7,9 +7,12 @@ export default navbar([
         icon: "book",
         prefix: "posts/",
         children: [
+            "flutter/",
             "golang/",
+            "前端",
             "运维/",
-            "flutter/"
+            "大模型",
+            "杂技"
         ],
     },
 ]);
