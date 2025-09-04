@@ -1,123 +1,40 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-  <meta charset="UTF-8">
-  <title>我的博客</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js/styles/github.min.css">
-  <style>
-    body {
-      font-family: "Segoe UI", Helvetica, Arial, sans-serif;
-      display: flex;
-      height: 100vh;
-      margin: 0;
-      background: #f9f9f9;
-      color: #333;
-    }
-    #sidebar {
-      width: 260px;
-      overflow-y: auto;
-      border-right: 1px solid #ddd;
-      padding: 1em;
-      background: #fafafa;
-    }
-    #content {
-      flex: 1;
-      padding: 2em;
-      overflow-y: auto;
-      background: #fff;
-    }
-    #sidebar h2 { margin-top: 0; font-size: 1.2em; }
-    ul { list-style-type: none; padding-left: 1em; }
-    li { margin: 0.3em 0; cursor: pointer; }
-    li.folder::before { content: "📂 "; }
-    li.file::before { content: "📄 "; }
-    .collapsed > ul { display: none; }
-    li.file { color: #0077cc; }
-    li.file:hover { text-decoration: underline; }
-
-    /* 内容区样式 */
-    #content h1, #content h2, #content h3 {
-      border-bottom: 1px solid #eee;
-      padding-bottom: 0.3em;
-      margin-top: 1.2em;
-    }
-    #content p { line-height: 1.7; margin: 1em 0; }
-    #content pre {
-      background: #f6f8fa;
-      padding: 1em;
-      border-radius: 6px;
-      overflow-x: auto;
-    }
-    #content code { font-family: monospace; }
-    #content blockquote {
-      border-left: 4px solid #ddd;
-      padding-left: 1em;
-      color: #555;
-      margin: 1em 0;
-    }
-
-    /* ====== Dark 模式 ====== */
-    @media (prefers-color-scheme: dark) {
-      body { background: #1e1e1e; color: #ddd; }
-      #sidebar { background: #252526; border-right: 1px solid #333; }
-      #content { background: #1e1e1e; }
-      li.file { color: #4ea1ff; }
-      #content h1, #content h2, #content h3 {
-        border-bottom: 1px solid #444;
-      }
-      #content pre {
-        background: #2d2d2d;
-      }
-      #content blockquote {
-        border-left-color: #555;
-        color: #bbb;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<title>博客目录</title>
+<style>
+  body { font-family:"Segoe UI", Helvetica, Arial, sans-serif; display:flex; justify-content:center; padding:2em; background:#f9f9f9; color:#333; margin:0; }
+  #container { max-width:800px; width:100%; }
+  h1 { text-align:center; }
+  ul { list-style:none; padding-left:1em; text-align:left; }
+  li { margin:0.3em 0; cursor:pointer; }
+  li.folder::before { content:"📂 "; }
+  li.file::before { content:"📄 "; color:#0077cc; }
+  li.file a { text-decoration:none; color:inherit; }
+  li.file a:hover { text-decoration:underline; }
+  .collapsed > ul { display:none; }
+  @media (prefers-color-scheme: dark) {
+    body { background:#1e1e1e; color:#ddd; }
+    nav { background:#252526; border-bottom:1px solid #333; }
+    li.file::before { color:#4ea1ff; }
+  }
+</style>
 </head>
 <body>
-  <div id="sidebar">
-    <h2>📚 博客目录</h2>
-    <ul><li class="folder">golang<ul><li class="file" data-path="src/golang/golang入门指南.md">golang入门指南</li></ul></li><li class="folder">vite<ul><li class="file" data-path="src/vite/vite入门指南.md">vite入门指南</li></ul></li></ul>
-  </div>
-  <div id="content">
-    <h2>欢迎</h2>
-    <p>请选择左侧文章阅读。</p>
-  </div>
-
-  <!-- 引入 marked.js -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <!-- 引入 highlight.js -->
-  <script src="https://cdn.jsdelivr.net/npm/highlight.js/lib/common.min.js"></script>
-  <script>
-    marked.setOptions({
-      highlight: function(code, lang) {
-        return hljs.highlightAuto(code).value;
-      }
-    });
-
-    // 折叠/展开目录
-    document.querySelectorAll("li.folder").forEach(folder => {
-      folder.addEventListener("click", (e) => {
-        if (e.target === folder) {
-          folder.classList.toggle("collapsed");
-        }
-      });
-      folder.classList.add("collapsed"); // 默认收起
-    });
-
-    // 点击文件 → 加载并渲染 Markdown
-    document.querySelectorAll("li.file").forEach(file => {
-      file.addEventListener("click", async () => {
-        const filePath = file.getAttribute("data-path");
-        const res = await fetch(filePath);
-        const text = await res.text();
-        document.getElementById("content").innerHTML = marked.parse(text);
-        document.querySelectorAll("pre code").forEach((el) => {
-          hljs.highlightElement(el);
-        });
-      });
-    });
-  </script>
+<div id="container">
+<nav style="display:flex; justify-content:center; gap:2em; padding:1em; border-bottom:1px solid #ddd; background:#fafafa;">
+    <a href="home.html" style="text-decoration:none; color:inherit; font-weight:normal">首页</a>
+    <a href="index.html" style="text-decoration:none; color:#0077cc; font-weight:bold">目录</a>
+  </nav>
+<h1>📚 博客目录</h1>
+<ul><li class="folder">golang<ul><li class="file"><a href="src/golang/golang入门指南.md" target="_blank">golang入门指南</a></li></ul></li><li class="folder">vite<ul><li class="file"><a href="src/vite/vite入门指南.md" target="_blank">vite入门指南</a></li></ul></li><li class="folder">前端<ul><li class="folder">react<ul><li class="file"><a href="src/前端/react/react 全面入门指南.md" target="_blank">react 全面入门指南</a></li></ul></li><li class="folder">vue<ul><li class="file"><a href="src/前端/vue/Vue.js 全面入门指南.md" target="_blank">Vue.js 全面入门指南</a></li></ul></li></ul></li></ul>
+</div>
+<script>
+document.querySelectorAll("li.folder").forEach(f=>{
+  f.addEventListener("click", e=>{ if(e.target===f) f.classList.toggle("collapsed"); });
+  f.classList.add("collapsed");
+});
+</script>
 </body>
 </html>
