@@ -1,4 +1,48 @@
-<!DOCTYPE html>
+import fs from "fs";
+import path from "path";
+
+const SRC_DIR = "src";
+const OUTPUT_FILE = "index.html";
+
+// 构建目录树
+function buildTree(dir) {
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    return entries.map((entry) => {
+        const fullPath = path.join(dir, entry.name);
+        if (entry.isDirectory()) {
+            return {
+                type: "dir",
+                name: entry.name,
+                children: buildTree(fullPath),
+            };
+        } else if (entry.isFile() && entry.name.endsWith(".md")) {
+            return {
+                type: "file",
+                name: entry.name,
+                path: path.relative(SRC_DIR, fullPath),
+            };
+        }
+    }).filter(Boolean);
+}
+
+// 渲染目录树 HTML
+function renderTree(tree, basePath = SRC_DIR) {
+    let html = "<ul>";
+    for (const node of tree) {
+        if (node.type === "dir") {
+            html += `<li class="folder">${node.name}${renderTree(node.children, basePath)}</li>`;
+        } else if (node.type === "file") {
+            const name = path.basename(node.name, ".md");
+            html += `<li class="file" data-path="${basePath}/${node.path}">${name}</li>`;
+        }
+    }
+    html += "</ul>";
+    return html;
+}
+
+function buildIndexHtml(tree) {
+    const listHtml = renderTree(tree);
+    return `<!DOCTYPE html>
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
@@ -78,7 +122,7 @@
 <body>
   <div id="sidebar">
     <h2>📚 博客目录</h2>
-    <ul><li class="folder">golang<ul><li class="file" data-path="src/golang/golang入门指南.md">golang入门指南</li></ul></li><li class="folder">vite<ul><li class="file" data-path="src/vite/vite入门指南.md">vite入门指南</li></ul></li></ul>
+    ${listHtml}
   </div>
   <div id="content">
     <h2>欢迎</h2>
@@ -120,4 +164,10 @@
     });
   </script>
 </body>
-</html>
+</html>`;
+}
+
+const tree = buildTree(SRC_DIR);
+const html = buildIndexHtml(tree);
+fs.writeFileSync(OUTPUT_FILE, html, "utf-8");
+console.log(`✅ 已生成 ${OUTPUT_FILE}`);
