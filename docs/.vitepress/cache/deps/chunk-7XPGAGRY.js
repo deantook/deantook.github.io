@@ -2282,13 +2282,13 @@ var ErrorTypeStrings$1 = {
   [7]: "vnode hook",
   [8]: "directive hook",
   [9]: "transition hook",
-  [10]: "客户端开发 errorHandler",
-  [11]: "客户端开发 warnHandler",
+  [10]: "app errorHandler",
+  [11]: "app warnHandler",
   [12]: "ref function",
   [13]: "async component loader",
   [14]: "scheduler flush",
   [15]: "component update",
-  [16]: "客户端开发 unmount cleanup function"
+  [16]: "app unmount cleanup function"
 };
 function callWithErrorHandling(fn, instance, type, args) {
   try {
@@ -2711,7 +2711,7 @@ function setDevtoolsHook$1(hook, target) {
   }
 }
 function devtoolsInitApp(app, version2) {
-  emit$1("客户端开发:init", app, version2, {
+  emit$1("app:init", app, version2, {
     Fragment,
     Text,
     Comment,
@@ -2719,7 +2719,7 @@ function devtoolsInitApp(app, version2) {
   });
 }
 function devtoolsUnmountApp(app) {
-  emit$1("客户端开发:unmount", app);
+  emit$1("app:unmount", app);
 }
 var devtoolsComponentAdded = createDevtoolsComponentHook(
   "component:added"
@@ -6056,7 +6056,7 @@ function createAppAPI(render2, hydrate2) {
             context.mixins.push(mixin);
           } else if (true) {
             warn$1(
-              "Mixin has already been applied to target 客户端开发" + (mixin.name ? `: ${mixin.name}` : "")
+              "Mixin has already been applied to target app" + (mixin.name ? `: ${mixin.name}` : "")
             );
           }
         } else if (true) {
@@ -12365,7 +12365,7 @@ var createApp = ((...args) => {
     const proxy = mount(container, false, resolveRootNamespace(container));
     if (container instanceof Element) {
       container.removeAttribute("v-cloak");
-      container.setAttribute("data-v-客户端开发", "");
+      container.setAttribute("data-v-app", "");
     }
     return proxy;
   };

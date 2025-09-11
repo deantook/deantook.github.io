@@ -2,10 +2,13 @@ import {defineConfig} from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-    title: "Moons",
-    description: "Moons Txt",
-    lang: 'zh',
+    title: "Freedom-Sworn",
+    description: " ",
+    lang: 'zh-CN',
     themeConfig: {
+        search:{
+            provider: 'local'
+        },
         // https://vitepress.dev/reference/default-theme-config
         nav: [
             {text: '首页', link: '/'},
@@ -151,5 +154,13 @@ export default defineConfig({
         socialLinks: [
             {icon: 'github', link: 'https://github.com/deantook'}
         ]
+    },
+
+    locales:{
+        root:{
+            label: '简体中文',
+            lang: 'zh'
+        }
     }
+
 })

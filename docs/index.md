@@ -3,9 +3,8 @@
 layout: home
 
 hero:
-  name: "Moons"
-#  text: "明辉空月"
-  tagline: My great project tagline
+  name: "Freedom-Sworn"
+  tagline: A straight sword, azure as antediluvian song, and as keen as the oaths of freedom taken in the Land of Wind.
   actions:
     - theme: brand
       text: Markdown Examples
