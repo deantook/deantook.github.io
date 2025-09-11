@@ -1349,8 +1349,8 @@ function setPluginSettings(pluginId, key, value) {
   }, DevToolsV6PluginAPIHookKeys.SET_PLUGIN_SETTINGS);
 }
 var DevToolsHooks = (function(DevToolsHooks$1) {
-  DevToolsHooks$1["APP_INIT"] = "app:init";
-  DevToolsHooks$1["APP_UNMOUNT"] = "app:unmount";
+  DevToolsHooks$1["APP_INIT"] = "客户端开发:init";
+  DevToolsHooks$1["APP_UNMOUNT"] = "客户端开发:unmount";
   DevToolsHooks$1["COMPONENT_UPDATED"] = "component:updated";
   DevToolsHooks$1["COMPONENT_ADDED"] = "component:added";
   DevToolsHooks$1["COMPONENT_REMOVED"] = "component:removed";
@@ -1361,7 +1361,7 @@ var DevToolsHooks = (function(DevToolsHooks$1) {
   DevToolsHooks$1["REMOVE_ROUTE"] = "router:remove-route";
   DevToolsHooks$1["RENDER_TRACKED"] = "render:tracked";
   DevToolsHooks$1["RENDER_TRIGGERED"] = "render:triggered";
-  DevToolsHooks$1["APP_CONNECTED"] = "app:connected";
+  DevToolsHooks$1["APP_CONNECTED"] = "客户端开发:connected";
   DevToolsHooks$1["SETUP_DEVTOOLS_PLUGIN"] = "devtools-plugin:setup";
   return DevToolsHooks$1;
 })({});
