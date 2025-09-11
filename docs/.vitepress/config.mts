@@ -9,7 +9,7 @@ export default defineConfig({
         // https://vitepress.dev/reference/default-theme-config
         nav: [
             {text: '首页', link: '/'},
-            {text: '文章', link: '/markdown-examples'}
+            {text: '文章', link: '/src/客户端开发/flutter精进计划.md'}
         ],
 
         sidebar: [
