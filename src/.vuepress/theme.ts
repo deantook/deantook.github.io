@@ -14,6 +14,10 @@ export default hopeTheme({
 
   logo: "https://theme-hope-assets.vuejs.press/logo.svg",
 
+  navbarTitle: 'lulumia',
+
+  navbarAutoHide: "always",
+
   repo: "deantook/deantook.github.io",
 
   docsDir: "src",
