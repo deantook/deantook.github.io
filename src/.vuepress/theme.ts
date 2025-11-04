@@ -9,6 +9,7 @@ export default hopeTheme({
   author: {
     name: "陈清华",
     url: "https://github.com/deantook",
+    email: "chenyunlong99@outlook.com",
   },
 
   logo: "https://theme-hope-assets.vuejs.press/logo.svg",
@@ -29,6 +30,7 @@ export default hopeTheme({
 
   // 博客相关
   blog: {
+    articlePerPage: 20,
     description: "敲代码的",
     intro: "/intro.html",
     medias: {
