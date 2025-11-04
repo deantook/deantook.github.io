@@ -18,6 +18,8 @@ export default hopeTheme({
 
   navbarAutoHide: "always",
 
+  focus: 10,
+
   repo: "deantook/deantook.github.io",
 
   docsDir: "src",
